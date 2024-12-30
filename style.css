@@ -1,0 +1,261 @@
+/* style.css */
+
+/* Vollbild, kein Scrollen */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom right, #141E30, #243B55);
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Haupt-Container füllt den verfügbaren Platz bis zum Scoreboard */
+  .game-container {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Titel oben */
+  .jeopardy-title {
+    text-align: center;
+    color: #FFD700; /* Gold */
+    font-size: 3em;
+    margin: 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px #000;
+  }
+  
+  /* Board-Area (Kategorien + Button) füllt den Platz bis zum Scoreboard */
+  .board-area {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Kategorien-Board (deutlich größer) */
+  .category-board {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    gap: 15px;
+  }
+  
+  /* Jede Kategorie-Spalte */
+  .category-column {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #444;
+    min-width: 180px;         /* Größer als zuvor */
+    background: rgba(10, 10, 40, 0.6);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  }
+  
+  /* Titel einer Kategorie */
+  .category-title {
+    background: rgba(255,215,0, 0.2);
+    padding: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    color: #ffd700;
+    text-align: center;
+    border-bottom: 1px solid #333;
+  }
+  
+  /* Zelle mit Punktwert */
+  .question-cell {
+    background: rgba(1, 51, 105, 0.8);
+    border-bottom: 1px solid #333;
+    padding: 40px;          /* Größer */
+    cursor: pointer;
+    font-size: 1.3em;
+    text-align: center;
+    color: #FFA500;
+    transition: background 0.2s;
+  }
+  .question-cell:hover {
+    background: rgba(1, 51, 105, 0.95);
+  }
+  .question-cell.used {
+    background: #555;
+    color: #888;
+    cursor: default;
+  }
+  
+  /* Final-Jeopardy-Button */
+  .final-jeopardy-btn {
+    background: #FFA500;
+    color: #00214d;
+    font-size: 1.3em;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 15px;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.4);
+  }
+  .final-jeopardy-btn:hover {
+    background: #ffbb33;
+  }
+  
+  /* ========= SCOREBOARD AM UNTEREN RAND ========== */
+  .scoreboard-container {
+    flex: 0 0 90px;   /* Feste Höhe */
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Scoreboard selbst */
+  .scoreboard {
+    display: flex;
+    gap: 40px;
+  }
+  
+  /* Ein Spielerfeld */
+  .scoreboard-player {
+    border: 2px solid #FFA500; /* Rahmen um die Punkte */
+    border-radius: 10px;
+    padding: 10px 20px;
+    min-width: 100px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    background: rgba(255,255,255,0.1);
+  }
+  
+  /* Name + Punkte */
+  .player-name {
+    display: block;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  .player-score {
+    font-size: 1.6em;
+    color: #FFA500;
+  }
+  
+  /* ========== MODAL BACKDROP ========== */
+  .modal-backdrop {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  
+  /* Frage-Modal */
+  .question-modal {
+    background: rgba(1,51,105,0.9);
+    padding: 20px;
+    border-radius: 10px;
+    width: 650px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.7);
+    position: relative;
+    color: #fff;
+  }
+  
+  /* Buttons etc. */
+  .modal-buttons {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .modal-buttons button {
+    font-size: 0.9em;
+    padding: 10px 20px;
+    background: #FFA500;
+    color: #00214d;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+  .modal-buttons button:hover {
+    background: #ffc14d;
+  }
+  
+  /* Bilder */
+  .question-image, .answer-image {
+    max-width: 100%;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  
+  /* Antwort erst hidden */
+  #answerContainer {
+    display: none;
+    margin-top: 15px;
+    color: #ffe700;
+    font-weight: bold;
+  }
+  
+  /* Timer */
+  #timerDisplay {
+    font-size: 1.2em;
+    color: yellow;
+    margin-left: 10px;
+  }
+  
+  /* Final Jeopardy (Popup) */
+  .final-jeopardy {
+    background: rgba(1, 51, 105, 0.9);
+    width: 650px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    border: 2px solid #444;
+    padding: 20px;
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.7);
+    border-radius: 10px;
+    color: #fff;
+    z-index: 10000;
+  }
+  .final-jeopardy h2 {
+    color: #ffd700;
+    text-shadow: 1px 1px 2px #000;
+  }
+  .final-jeopardy button {
+    background: #FFA500;
+    color: #00214d;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    margin-top: 10px;
+  }
+  .final-jeopardy button:hover {
+    background: #ffc14d;
+  }
+  
