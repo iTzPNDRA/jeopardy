@@ -8,7 +8,6 @@
 <body>
   <!-- Titel -->
   <h1 class="jeopardy-title">JEOPARDY</h1>
-
   <div class="game-container">
     <!-- Haupt-Bereich: Kategorien + Button -->
     <div class="board-area">
@@ -16,18 +15,15 @@
       <button class="final-jeopardy-btn" id="finalJeopardyBtn">Final Jeopardy starten</button>
     </div>
   </div>
-
   <!-- Scoreboard am unteren Rand -->
   <div class="scoreboard-container">
     <div class="scoreboard" id="scoreboard"></div>
   </div>
-
   <!-- Modales Fenster für Fragen -->
   <div class="modal-backdrop" id="questionModalBackdrop">
     <div class="question-modal" id="questionModal">
       <div id="questionText"></div>
       <img src="" alt="Frage-Bild" id="questionImage" class="question-image" />
-
       <div class="modal-buttons">
         <button id="startTimerBtn">Timer starten</button>
         <span id="timerDisplay"></span>
@@ -35,12 +31,10 @@
         <!-- Beispiel: Button im Modal für "Sound abspielen" -->
         <button id="playQuestionSoundBtn">Sound abspielen</button>
       </div>
-
       <div id="answerContainer">
         <div id="answerText"></div>
         <img src="" alt="Antwort-Bild" id="answerImage" class="answer-image" />
       </div>
-
       <p style="margin:10px 0; font-weight:bold;">
         Spieler-Auswahl:
       </p>
@@ -48,7 +42,6 @@
         <label for="playerSelect">Spieler:</label>
         <select id="playerSelect"></select>
       </div>
-
       <div class="modal-buttons">
         <button id="correctBtn">Richtig</button>
         <button id="incorrectBtn">Falsch</button>
@@ -57,12 +50,10 @@
       </div>
     </div>
   </div>
-
   <!-- Final Jeopardy Modal -->
   <div class="final-jeopardy" id="finalJeopardySection">
     <h2>Final Jeopardy</h2>
     <p id="finalQuestionText"></p>
-
     <div id="wagerSection"></div>
     
     <button id="revealFinalAnswerBtn" style="margin-top:10px;">Antwort anzeigen</button>
@@ -74,16 +65,13 @@
       <button id="endFinalJeopardyBtn" style="margin-top:10px;">Final Jeopardy beenden</button>
     </div>
   </div>
-
   <!-- Sound-Dateien -->
   <!-- Du kannst hier z. B. Audio-Elemente definieren,
        oder du lädst sie dynamisch in script.js (new Audio("sounds/buzzer.mp3")). -->
   <audio id="buzzerSound" src="sounds/buzzer.mp3" preload="auto"></audio>
   <audio id="correctSound" src="sounds/correct.wav" preload="auto"></audio>
-
   <!-- JavaScript -->
   <script src="questions.js"></script>
-  <script src="/socket.io/socket.io.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
